@@ -3,7 +3,7 @@ document.querySelector("span").innerHTML = "<sup>Scroll Down</sup>"
 
 
 document.querySelector(".c2").onclick = function() {
-    alert("Please wait!!!!!!")
+    alert("work in progress.")
     setTimeout(function() {
         document.querySelector(".c2 .back h1").innerHTML = "<h1>Fairy Tail<sup>&reg;</sup></h1>";
         document.querySelector(".c2 .back h1").style.fontSize = "14px";
