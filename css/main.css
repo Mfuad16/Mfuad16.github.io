@@ -1,0 +1,19 @@
+.body {
+  margin: 0%;
+  padding: 0%;
+  background-color: #f2f2f2;
+}
+
+.nav {
+  display: block;
+}
+
+.footer {
+  background-color: black;
+  color: chartreuse;
+  text-align: center;
+  font-size: 1.5rem;
+
+  height: 40px;
+  margin-left: 0px;
+}
