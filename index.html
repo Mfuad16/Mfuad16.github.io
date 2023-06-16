@@ -1,132 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/main.css" />
-    <title>Portfolio</title>
-    
-  </head>
-
-<script type="text/javascript">
-  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-  (function(){
-  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-  s1.async=true;
-  s1.src='https://embed.tawk.to/648bcb3ecc26a871b022d8e7/1h3113rmu';
-  s1.charset='UTF-8';
-  s1.setAttribute('crossorigin','*');
-  s0.parentNode.insertBefore(s1,s0);
-  })();
-  </script>
-  
-  <body>
-    <nav id="Navbar">
-      <a href="index.html" id="ss" >Home</a>
-      <a href="/html/about.html">About</a>
-      <a href="/html/contact.html">Contact</a>
-      
-    </nav>
-    <p></p>
-    <div id="Content" >
-      <img src="image/MAC/curve-blue.jpg" alt="">
-      <img src="image/MAC/curve.jpg" alt="">
-      <img src="image/MAC/escr.png" alt="">
-      <img src="image/MAC/flash.jpg" alt="">
-      <img src="image/MAC/layer.jpg" alt="">
-      <img src="image/MAC/mac-waves.jpg" alt="">
-      <img src="image/MAC/moonfall.jpg" alt="">
-      <img src="image/MAC/owl.png" alt="">
-      <img src="image/MAC/spaceman.jpg" alt="">
-    </div>
-    <div id="smart-button-container">
-      <div style="text-align: center;">
-        <div id="paypal-button-container"></div>
-      </div>
-    </div>
-  <script src="https://www.paypal.com/sdk/js?client-id=sb&enable-funding=venmo&currency=USD" data-sdk-integration-source="button-factory"></script>
-  <script>
-    function initPayPalButton() {
-      paypal.Buttons({
-        style: {
-          shape: 'rect',
-          color: 'gold',
-          layout: 'vertical',
-          label: 'paypal',
-          
-        },
-
-        createOrder: function(data, actions) {
-          return actions.order.create({
-            purchase_units: [{"amount":{"currency_code":"USD","value":1}}]
-          });
-        },
-
-        onApprove: function(data, actions) {
-          return actions.order.capture().then(function(orderData) {
-            
-            // Full available details
-            console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
-
-            // Show a success message within this page, e.g.
-            const element = document.getElementById('paypal-button-container');
-            element.innerHTML = '';
-            element.innerHTML = '<h3>Thank you for your payment!</h3>';
-
-            // Or go to another URL:  actions.redirect('thank_you.html');
-            
-          });
-        },
-
-        onError: function(err) {
-          console.log(err);
-        }
-      }).render('#paypal-button-container');
+<html>
+<head>
+  <title>Awesome Transition Website</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f1f1f1;
     }
-    initPayPalButton();
-  </script>
-   
-    
 
-    
-    
-    
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
 
+    .content {
+      opacity: 0;
+      animation: fade-in 2s forwards;
+      text-align: center;
+    }
 
+    .bounce {
+      animation: bounce 1s infinite;
+    }
 
+    @keyframes fade-in {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
 
-
-
-    
-    
-    
-    
-    
-    <div class="foot"></div>
-    <footer>
-      <div id="footer">
-        <p>
-          <a href="https://www.linkedin.com/in/fuad-mohammed-b8a8b814a/">
-            <img src="https://img.icons8.com/color/48/000000/linkedin.png" />
-          </a>
-
-          <a href="https://www.facebook.com/" target="_blank">
-            <img src="https://img.icons8.com/color/48/000000/facebook.png" />
-          </a>
-          <a href="https://www.instagram.com/" target="_blank">
-            <img src="https://img.icons8.com/color/48/000000/instagram.png" />
-          </a>
-          <a href="https://www.twitter.com/" target="_blank">
-            <img src="https://img.icons8.com/color/48/000000/twitter.png" />
-          </a>
-          <a href="https://www.youtube.com/" target="_blank">
-            <img src="https://img.icons8.com/color/48/000000/youtube.png" />
-          </a>
-        </p>
-      </div>
-    </footer>
-    <div class="foot"></div>
-    <script src="js/main.js"></script>
-  </body>
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="content">
+      <h1>Welcome to the Awesome Transition Website!</h1>
+      <p>This website showcases smooth transitions and cool animations.</p>
+      <p class="bounce">Watch me bounce!</p>
+    </div>
+  </div>
+</body>
 </html>
