@@ -11,32 +11,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-      $(document).ready(function() {
-        $.ajax({
-          type: "GET",
-          url: "Joyo_Kanji-Sheet1.csv",
-          dataType: "text",
-          success: function(data) {
-            var flashcards = data.split("\n");
-            for (var i = 0; i < flashcards.length; i++) {
-              var card = flashcards[i].split(",");
-              var front = card[0];
-              var back = card[1];
-  
-              // Create flashcard elements and append them to the page
-              var flashcardElement = document.createElement("div");
-              flashcardElement.className = "flashcard";
-              flashcardElement.innerHTML = `
-                <div class="front">${front}</div>
-                <div class="back">${back}</div>
-              `;
-              document.getElementById("flashcard-container").appendChild(flashcardElement);
-            }
-          }
-        });
-      });
-    </script>
 </head>
 
 <script type="text/javascript">
@@ -57,7 +31,7 @@
             <div class="left-header">
                 <div class="h-shape"></div>
                 <div class="image">
-                    <img src="img/hero.jpg" alt="">
+                    <img src="img/hero.png" alt="">
                 </div>
             </div>
             <div class="right-header">
