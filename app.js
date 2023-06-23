@@ -11,21 +11,53 @@
         document.body.classList.toggle("light-mode");
     })
 })();
-// Get the flash card container element
-var flashCardContainer = document.getElementById("flash-card-container");
-
-// Get the front and back elements
-var frontElement = flashCardContainer.querySelector(".front");
-var backElement = flashCardContainer.querySelector(".back");
-
-// Set the initial state of the flash card
-var isFlipped = false;
-
-// Function to toggle the flip state of the flash card
-function toggleFlip() {
-  isFlipped = !isFlipped;
-  flashCardContainer.classList.toggle("flipped");
-}
-
-// Add event listener to the flash card container
-flashCardContainer.addEventListener("click", toggleFlip);
+// Function to load the CSV file
+function loadCSVFile(callback) {
+    var xmlhttp = new XMLHttpRequest();
+    var url = "Joyo_Kanji - Sheet1.csv";
+  
+    xmlhttp.onreadystatechange = function() {
+      if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        callback(xmlhttp.responseText);
+      }
+    };
+  
+    xmlhttp.open("GET", url, true);
+    xmlhttp.send();
+  }
+  
+  // Function to process the CSV data
+  function processCSVData(data) {
+    // Split the data into rows
+    var rows = data.split("\n");
+  
+    // Process each row
+    for (var i = 0; i < rows.length; i++) {
+      var columns = rows[i].split(",");
+  
+      // Access the data in each column
+      var frontText = columns[0];
+      var backText = columns[1];
+  
+      // Create a new flash card element
+      var flashCard = document.createElement("div");
+      flashCard.classList.add("flash-card");
+  
+      var frontElement = document.createElement("div");
+      frontElement.classList.add("front");
+      frontElement.textContent = frontText;
+      flashCard.appendChild(frontElement);
+  
+      var backElement = document.createElement("div");
+      backElement.classList.add("back");
+      backElement.textContent = backText;
+      flashCard.appendChild(backElement);
+  
+      // Add the flash card to the container
+      flashCardContainer.appendChild(flashCard);
+    }
+  }
+  
+  // Load the CSV file and process the data
+  loadCSVFile(processCSVData);
+  
